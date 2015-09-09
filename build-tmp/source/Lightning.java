@@ -1,3 +1,19 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Lightning extends PApplet {
+
 int startX1 = 100;
 int startY1 = 240;
 int endX1 = 100;
@@ -11,13 +27,13 @@ int changeX = startX1 + (int)(Math.random()*9);
 int changeY = startY1 + (int)(Math.random()*9)-4;
 */
 
-void setup()
+public void setup()
 {
   size(800,400);
   strokeWeight(3);
   background(0);
 }
-void draw()
+public void draw()
 {
 	stick();
 	stroke(255);
@@ -42,7 +58,7 @@ void draw()
 	}
 	*/
 }
-void mousePressed()
+public void mousePressed()
 {
 	startX1 = 100;
 	startY1 = 240;
@@ -55,7 +71,7 @@ void mousePressed()
 	endY2 = 250;
 	*/
 }
-void stick()
+public void stick()
 {
 	noStroke();
 	//Head
@@ -78,4 +94,13 @@ void stick()
 	//Back Leg
 	line(78, 260, 78, 269);
 	line(78, 269, 70, 275);
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Lightning" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
